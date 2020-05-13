@@ -1,2 +1,2 @@
 # grocery-planner
-An app to help you manage the foods in your pantry
+An app to help you manage your shopping list
