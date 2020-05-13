@@ -34,17 +34,19 @@ function print(message) {
 
 enter.addEventListener('click', () => {
     if (input.value === 'list') {
-        print(`<p>You have`);
+        let list = '';
+        list += `<p>You have `;
         for (let i = 0; i < groceries.length; i++) {
             if (i === groceries.length - 2) {
-                print(`and `);
+                list += `${groceries[i]} and `;
             } else if (i === groceries.length - 1) {
-                print(`${groceries[i]}.`);
+                list += `${groceries[i]}.`;
             } else {
-                print(`${groceries[i]}, `);
+                list += `${groceries[i]}, `;
             }
         }
-        print(`</p>`);
+        list += `</p>`
+        print(list);
 
     } else if (firstWord(input.value) === 'add') {
        groceries.push(secondWord(input.value));
@@ -61,6 +63,10 @@ enter.addEventListener('click', () => {
             groceries.splice(checkForItem(), 1);
             print(`<p>${secondWord(input.value)} was successfully deleted!</p>`);
         }
+
+    } else if (firstWord(input.value) === 'sort') {
+        groceries.sort();
+        print(`<p>Your groceries are now sorted!</p>`)
 
     } else if (firstWord(input.value) === 'clear') {
         document.getElementById('output').innerHTML = '';
